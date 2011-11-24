@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Grace</string>
+  <key>scopeName</key>
+  <string>source.grace</key>
+  <key>fileTypes</key>
+  <array>
+    <string>grace</string>
+  </array>
+  <key>patterns</key>
+  <array>
+    <dict>
+      <key>name</key>
+      <string>meta.import.grace</string>
+      <key>begin</key>
+      <string>(import)</key>
+      <key>beginCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.other.grace</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>($|;)</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#module_name</string>
+        </dict>
+      </array>
+    </dict>
+  </array>
+  <key>repository</key>
+  <dict>
+    <key>module_name</key>
+    <dict>
+      <key>match</key>
+      <string>[A-Za-z].*</string>
+      <key>name</key>
+      <string>support.other.module.grace</string>
+    </dict>
+  </dict>
+  <key>uuid</key>
+  <string>ca03e751-04ef-4330-9a6b-9b99aae1c419</string>
+</dict>
+</plist>
