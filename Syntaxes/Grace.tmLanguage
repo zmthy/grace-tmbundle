@@ -5,7 +5,7 @@
   <key>name</key>
   <string>Grace</string>
   <key>scopeName</key>
-  <string>source.grace</key>
+  <string>source.grace</string>
   <key>fileTypes</key>
   <array>
     <string>grace</string>
@@ -16,7 +16,7 @@
       <key>name</key>
       <string>meta.import.grace</string>
       <key>begin</key>
-      <string>(import)</key>
+      <string>(import)</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
@@ -41,7 +41,7 @@
     <key>module_name</key>
     <dict>
       <key>match</key>
-      <string>[A-Za-z].*</string>
+      <string>[A-Za-z]\w*</string>
       <key>name</key>
       <string>support.other.module.grace</string>
     </dict>
