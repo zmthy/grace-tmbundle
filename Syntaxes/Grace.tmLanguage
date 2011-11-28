@@ -14,9 +14,15 @@
   <array>
     <dict>
       <key>name</key>
+      <string>comment.line.grace</string>
+      <key>match</key>
+      <string>//.*$</string>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>meta.import.grace</string>
       <key>begin</key>
-      <string>(import)</string>
+      <string>\b(import)\b</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
@@ -34,6 +40,97 @@
           <string>#module_name</string>
         </dict>
       </array>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>meta.method.grace</string>
+      <key>match</key>
+      <string>\b(method)\s+(\w[\w\d]*)(\()([^\)]*)(\))</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>storage.type.method.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.method.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.parameters.begin.grace</string>
+        </dict>
+        <key>4</key>
+        <dict>
+          <key>name</key>
+          <string>variable.parameter.method.grace</string>
+        </dict>
+        <key>5</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.parameters.begin.grace</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>string.quoted.double.grace</string>
+      <key>begin</key>
+      <string>"</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.string.begin.js</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>"</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.string.end.js</string>
+        </dict>
+      </dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)</string>
+          <key>name</key>
+          <string>constant.character.escape.grace</string>
+        </dict>
+      </array>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>keyword.operator.grace</string>
+      <key>match</key>
+      <string>[|!%$?&amp;\*~+:\-=&lt;/&gt;\\]+</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>storage.type.grace</string>
+      <key>match</key>
+      <string>\b(var|method)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>constant.numeric.grace</string>
+      <key>match</key>
+      <string>\b((0(x|X)[0-9a-fA-F]+)|([0-9]+(\.[0-9]+)?))\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.method.grace</string>
+      <key>match</key>
+      <string>\b(if|then|else|for|do)\b</string>
     </dict>
   </array>
   <key>repository</key>
