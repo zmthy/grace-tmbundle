@@ -43,35 +43,85 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>meta.method.grace</string>
+      <string>meta.class.grace</string>
       <key>match</key>
-      <string>\b(method)\s+(\w[\w\d]*)(\()([^\)]*)(\))</string>
+      <string>\b(class)\s+([A-z_]\w*)</string>
       <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>storage.type.class.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.class.grace</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>meta.method.grace</string>
+      <key>begin</key>
+      <string>\b(method)\b</string>
+      <key>beginCaptures</key>
       <dict>
         <key>1</key>
         <dict>
           <key>name</key>
           <string>storage.type.method.grace</string>
         </dict>
+      </dict>
+      <key>end</key>
+      <string>\{</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>([A-z_]\w*)\s*((\()([^\)]*)(\)))?</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>entity.name.method.grace</string>
+            </dict>
+            <key>3</key>
+            <dict>
+              <key>name</key>
+              <string>punctuation.definition.parameters.begin.grace</string>
+            </dict>
+            <key>4</key>
+            <dict>
+              <key>name</key>
+              <string>variable.parameter.method.grace</string>
+            </dict>
+            <key>5</key>
+            <dict>
+              <key>name</key>
+              <string>punctuation.definition.parameters.begin.grace</string>
+            </dict>
+          </dict>
+        </dict>
+      </array>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>meta.block.grace</string>
+      <key>match</key>
+      <string>\{([\w,\s]+)(-&gt;)</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>variable.parameter.block.grace</string>
+        </dict>
         <key>2</key>
         <dict>
           <key>name</key>
-          <string>entity.name.method.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>punctuation.definition.parameters.begin.grace</string>
-        </dict>
-        <key>4</key>
-        <dict>
-          <key>name</key>
-          <string>variable.parameter.method.grace</string>
-        </dict>
-        <key>5</key>
-        <dict>
-          <key>name</key>
-          <string>punctuation.definition.parameters.begin.grace</string>
+          <string>keyword.operator.grace</string>
         </dict>
       </dict>
     </dict>
@@ -110,6 +160,12 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>keyword.control.grace</string>
+      <key>match</key>
+      <string>\b(return)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>keyword.operator.grace</string>
       <key>match</key>
       <string>[|!%$?&amp;\*~+:\-=&lt;/&gt;\\]+</string>
@@ -118,7 +174,7 @@
       <key>name</key>
       <string>storage.type.grace</string>
       <key>match</key>
-      <string>\b(var|method)\b</string>
+      <string>\b(var|def|method)\b</string>
     </dict>
     <dict>
       <key>name</key>
@@ -130,7 +186,19 @@
       <key>name</key>
       <string>support.method.grace</string>
       <key>match</key>
-      <string>\b(if|then|else|for|do)\b</string>
+      <string>\b(if|then|else|for|while|do)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>constant.language.boolean.true.grace</string>
+      <key>match</key>
+      <string>\btrue\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>constant.language.boolean.false.grace</string>
+      <key>match</key>
+      <string>\bfalse\b</string>
     </dict>
   </array>
   <key>repository</key>
