@@ -186,7 +186,7 @@
       <key>name</key>
       <string>support.method.grace</string>
       <key>match</key>
-      <string>\b(if|then|else|for|while|do)\b</string>
+      <string>\b(if|then|else|elseif|for|while|do)\b</string>
     </dict>
     <dict>
       <key>name</key>
