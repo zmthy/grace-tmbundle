@@ -45,7 +45,7 @@
       <key>name</key>
       <string>meta.class.grace</string>
       <key>match</key>
-      <string>\b(class)\s+([A-z_]\w*)</string>
+      <string>\b(class)\s+([A-z][A-z\d']*)</string>
       <key>captures</key>
       <dict>
         <key>1</key>
@@ -79,7 +79,19 @@
       <array>
         <dict>
           <key>match</key>
-          <string>([A-z_]\w*)\s*((\()([^\)]*)(\)))?</string>
+          <string>([A-z][A-z\d']*)\s*[,\)]</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>variable.parameter.method.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>([A-z][A-z\d']*)\s*</string>
           <key>captures</key>
           <dict>
             <key>1</key>
@@ -87,43 +99,46 @@
               <key>name</key>
               <string>entity.name.method.grace</string>
             </dict>
-            <key>3</key>
-            <dict>
-              <key>name</key>
-              <string>punctuation.definition.parameters.begin.grace</string>
-            </dict>
-            <key>4</key>
-            <dict>
-              <key>name</key>
-              <string>variable.parameter.method.grace</string>
-            </dict>
-            <key>5</key>
-            <dict>
-              <key>name</key>
-              <string>punctuation.definition.parameters.begin.grace</string>
-            </dict>
           </dict>
+        </dict>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.parameters.begin.grace</string>
+          <key>match</key>
+          <string>\(</string>
+        </dict>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.parameters.end.grace</string>
+          <key>match</key>
+          <string>\)</string>
         </dict>
       </array>
     </dict>
     <dict>
       <key>name</key>
       <string>meta.block.grace</string>
-      <key>match</key>
-      <string>\{([\w,\s]+)(-&gt;)</string>
-      <key>captures</key>
+      <key>begin</key>
+      <string>\{</string>
+      <key>end</key>
+      <string>(-&gt;)|(.(?!-&gt;))*?(?=$|[^A-z\d\s'_,])</string>
+      <key>endCaptures</key>
       <dict>
         <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>variable.parameter.block.grace</string>
-        </dict>
-        <key>2</key>
         <dict>
           <key>name</key>
           <string>keyword.operator.grace</string>
         </dict>
       </dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>name</key>
+          <string>variable.parameter.block.grace</string>
+          <key>match</key>
+          <string>\b([A-z][A-z\d']*|_)\b</string>
+        </dict>
+      </array>
     </dict>
     <dict>
       <key>name</key>
@@ -156,6 +171,37 @@
           <key>name</key>
           <string>constant.character.escape.grace</string>
         </dict>
+        <dict>
+          <key>name</key>
+          <string>source.grace.embedded.source</string>
+          <key>begin</key>
+          <string>(\{)</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>punctuation.section.embedded.grace</string>
+            </dict>
+          </dict>
+          <key>end</key>
+          <string>(\})</string>
+          <key>endCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>punctuation.section.embedded.grace</string>
+            </dict>
+          </dict>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>$self</string>
+            </dict>
+          </array>
+        </dict>
       </array>
     </dict>
     <dict>
@@ -174,7 +220,7 @@
       <key>name</key>
       <string>storage.type.grace</string>
       <key>match</key>
-      <string>\b(var|def|method)\b</string>
+      <string>\b(var|def|method|class)\b</string>
     </dict>
     <dict>
       <key>name</key>
@@ -186,7 +232,13 @@
       <key>name</key>
       <string>support.method.grace</string>
       <key>match</key>
-      <string>\b(if|then|else|elseif|for|while|do)\b</string>
+      <string>\b(if|then|else|elseif|for|while|do|match|case)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>variable.language.self.grace</string>
+      <key>match</key>
+      <string>\b(super|self)\b</string>
     </dict>
     <dict>
       <key>name</key>
