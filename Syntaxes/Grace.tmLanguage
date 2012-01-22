@@ -13,10 +13,8 @@
   <key>patterns</key>
   <array>
     <dict>
-      <key>name</key>
-      <string>comment.line.grace</string>
-      <key>match</key>
-      <string>//.*$</string>
+      <key>include</key>
+      <string>#comment</string>
     </dict>
     <dict>
       <key>name</key>
@@ -28,7 +26,7 @@
         <key>1</key>
         <dict>
           <key>name</key>
-          <string>keyword.other.grace</string>
+          <string>keyword.import.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -51,7 +49,7 @@
         <key>1</key>
         <dict>
           <key>name</key>
-          <string>storage.type.class.grace</string>
+          <string>keyword.class.grace</string>
         </dict>
         <key>2</key>
         <dict>
@@ -59,6 +57,91 @@
           <string>entity.name.class.grace</string>
         </dict>
       </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>meta.type.grace</string>
+      <key>begin</key>
+      <string>\b(type)\s+([A-z][A-z\d']*)\s*(=)\s*\{</string>
+      <key>end</key>
+      <string>\}</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.type.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.type.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.operator.type.grace</string>
+        </dict>
+      </dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>([A-z][A-z\d']*)(?:\s*:\s*([A-z][A-z\d']*))?\s*[,\)]</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>variable.parameter.method.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>storage.parameter.method.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>:\s*([A-z][A-z\d']*)</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>storage.type.method.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(->)\s*([A-z][A-z\d']*)</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.type.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>storage.type.method.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>[A-z][A-z\d']*</string>
+          <key>name</key>
+          <string>entity.name.method.grace</string>
+        </dict>
+      </array>
     </dict>
     <dict>
       <key>name</key>
@@ -70,7 +153,7 @@
         <key>1</key>
         <dict>
           <key>name</key>
-          <string>storage.type.method.grace</string>
+          <string>keyword.method.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -79,13 +162,35 @@
       <array>
         <dict>
           <key>match</key>
-          <string>([A-z][A-z\d']*)\s*[,\)]</string>
+          <string>([A-z][A-z\d']*)(?:\s*:\s*([A-z][A-z\d']*))?\s*[,\)]</string>
           <key>captures</key>
           <dict>
             <key>1</key>
             <dict>
               <key>name</key>
               <string>variable.parameter.method.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>storage.parameter.method.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(->)\s*([A-z][A-z\d']*)\s*</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.type.method.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>storage.type.method.grace</string>
             </dict>
           </dict>
         </dict>
@@ -117,11 +222,35 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>meta.definition.grace</string>
+      <key>match</key>
+      <string>(def|var)\s+([A-z][A-z\d']*)(?:\s*:\s*([A-z][A-z\d']*))?</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.definition.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>entity.definition.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>storage.type.definition.grace</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>meta.block.grace</string>
       <key>begin</key>
       <string>\{</string>
       <key>end</key>
-      <string>(-&gt;)|(.(?!-&gt;))*?(?=$|[^A-z\d\s'_,])</string>
+      <string>(-&gt;)|(.(?!-&gt;))*?(?=$|[^A-z\d\s'_,:])</string>
       <key>endCaptures</key>
       <dict>
         <key>1</key>
@@ -133,10 +262,21 @@
       <key>patterns</key>
       <array>
         <dict>
-          <key>name</key>
-          <string>variable.parameter.block.grace</string>
           <key>match</key>
-          <string>\b([A-z][A-z\d']*|_)\b</string>
+          <string>([A-z][A-z\d']*|_)(?:\s*:\s*([A-z][A-z\d']*))?</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>variable.parameter.block.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>storage.parameter.block.grace</string>
+            </dict>
+          </dict>
         </dict>
       </array>
     </dict>
@@ -218,9 +358,9 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>storage.type.grace</string>
+      <string>keyword.grace</string>
       <key>match</key>
-      <string>\b(var|def|method|class)\b</string>
+      <string>\b(var|def|method|class|type)\b</string>
     </dict>
     <dict>
       <key>name</key>
@@ -255,12 +395,24 @@
   </array>
   <key>repository</key>
   <dict>
+    <key>comment</key>
+    <dict>
+      <key>match</key>
+      <string>//.*$</string>
+      <key>name</key>
+      <string>comment.line.grace</string>
+    </dict>
     <key>module_name</key>
     <dict>
       <key>match</key>
-      <string>[A-Za-z]\w*</string>
+      <string>[A-Za-z][\w']*</string>
       <key>name</key>
       <string>support.other.module.grace</string>
+    </dict>
+    <key>declaration_type</key>
+    <dict>
+      <key>match</key>
+      <string>([A-Za-z][\w']*)(\s*:\s*([A-Za-z][\w']*))?</string>
     </dict>
   </dict>
   <key>uuid</key>
