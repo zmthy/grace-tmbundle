@@ -9,4 +9,4 @@ Installation:
     cd ~/Library/Application\ Support/TextMate/Bundles
     git clone git://github.com/zimothy/grace-tmbundle Grace.tmbundle
 
-At the moment the bundle only includes syntax highlighting.
+At the moment the bundle only includes syntax highlighting and commenting.
