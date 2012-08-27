@@ -20,7 +20,7 @@
       <key>name</key>
       <string>keyword.grace</string>
       <key>match</key>
-      <string>\b(is|dialect)\b</string>
+      <string>\b(is|where|dialect)\b|#pragma</string>
     </dict>
     <dict>
       <key>name</key>
@@ -106,7 +106,7 @@
       <key>name</key>
       <string>meta.definition.grace</string>
       <key>match</key>
-      <string>(def|var)\s+([A-z][A-z\d']*)(?:\s*:\s*([A-z][A-z\d'\s|&amp;]*))?</string>
+      <string>(def|var)\s+([A-z][A-z\d']*)(?:\s*(:)\s*([A-z][A-z\d'\s|&amp;]*?))?</string>
       <key>captures</key>
       <dict>
         <key>1</key>
@@ -120,6 +120,11 @@
           <string>entity.definition.grace</string>
         </dict>
         <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.type.grace</string>
+        </dict>
+        <key>4</key>
         <dict>
           <key>name</key>
           <string>storage.type.definition.grace</string>
@@ -145,7 +150,7 @@
       <array>
         <dict>
           <key>match</key>
-          <string>([A-z][A-z\d']*|_)(?:\s*:\s*([A-z][A-z\d'\s|&amp;]*))?</string>
+          <string>([A-z][A-z\d']*|_)(?:\s*(:)\s*([A-z][A-z\d'\s|&amp;]*))?</string>
           <key>captures</key>
           <dict>
             <key>1</key>
@@ -154,6 +159,11 @@
               <string>variable.block.parameter.grace</string>
             </dict>
             <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.type.grace</string>
+            </dict>
+            <key>3</key>
             <dict>
               <key>name</key>
               <string>storage.type.block.parameter.grace</string>
@@ -203,7 +213,7 @@
             <key>1</key>
             <dict>
               <key>name</key>
-              <string>punctuation.section.embedded.grace</string>
+              <string>punctuation.section.embedded.begin.grace</string>
             </dict>
           </dict>
           <key>end</key>
@@ -213,7 +223,7 @@
             <key>1</key>
             <dict>
               <key>name</key>
-              <string>punctuation.section.embedded.grace</string>
+              <string>punctuation.section.embedded.end.grace</string>
             </dict>
           </dict>
           <key>patterns</key>
@@ -230,18 +240,23 @@
       <key>name</key>
       <string>meta.annotation.type.grace</string>
       <key>match</key>
-      <string>[A-z][A-z\d']*\s*(:)\s*([A-z][A-z\d'&gt;&lt;&amp;|\s]*)</string>
+      <string>([A-z][A-z\d']*)\s*(:)\s*([A-z][A-z\d'&gt;&lt;&amp;|\s]*)</string>
       <key>captures</key>
       <dict>
         <key>1</key>
         <dict>
           <key>name</key>
-          <string>keyword.operator.annotation.type.grace</string>
+          <string>variable.annotated.type.grace</string>
         </dict>
         <key>2</key>
         <dict>
           <key>name</key>
-          <string>storage.annotation.type.grace</string>
+          <string>keyword.operator.annotation.type.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>storage.type.annotation.grace</string>
         </dict>
       </dict>
     </dict>
@@ -280,6 +295,12 @@
       <key>name</key>
       <string>keyword.operator.grace</string>
       <key>match</key>
+      <string>(\b|\s)(:=|=|:)(\b|\s)</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.function.operator.grace</string>
+      <key>match</key>
       <string>[|!%$?&amp;\*~+:\-=&lt;/&gt;\\]+</string>
     </dict>
     <dict>
@@ -302,15 +323,21 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>support.value.grace</string>
+      <string>support.function.annotation.grace</string>
       <key>match</key>
       <string>\b(platform|public|confidential|private|readable|writable|annotation)\b</string>
     </dict>
     <dict>
       <key>name</key>
-      <string>support.method.grace</string>
+      <string>support.function.grace</string>
       <key>match</key>
       <string>\b(if|then|else|elseif|for|while|do|match|case|print)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.type.grace</string>
+      <key>match</key>
+      <string>\b(Boolean|String|Number|List|Block|Dynamic)\b</string>
     </dict>
     <dict>
       <key>name</key>
