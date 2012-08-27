@@ -18,6 +18,12 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>keyword.grace</string>
+      <key>match</key>
+      <string>\b(is|dialect)\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>meta.import.grace</string>
       <key>begin</key>
       <string>\b(import)\b</string>
@@ -224,7 +230,7 @@
       <key>name</key>
       <string>meta.annotation.type.grace</string>
       <key>match</key>
-      <string>[A-z][A-z\d]*\s*(:)\s*([A-z][A-z\d]*)</string>
+      <string>[A-z][A-z\d']*\s*(:)\s*([A-z][A-z\d'&gt;&lt;&amp;|\s]*)</string>
       <key>captures</key>
       <dict>
         <key>1</key>
@@ -249,7 +255,7 @@
       <key>name</key>
       <string>meta.type.method.return.grace</string>
       <key>match</key>
-      <string>(->)\s*([A-z\d'&gt;&lt;\s]*)</string>
+      <string>(->)\s*([A-z\d'&gt;&lt;&amp;|]*)</string>
       <key>captures</key>
       <dict>
         <key>1</key>
@@ -293,6 +299,12 @@
       <string>keyword.object.grace</string>
       <key>match</key>
       <string>\bobject\b</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.value.grace</string>
+      <key>match</key>
+      <string>\b(platform|public|confidential|private|readable|writable|annotation)\b</string>
     </dict>
     <dict>
       <key>name</key>
