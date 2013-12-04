@@ -82,53 +82,14 @@
     <dict>
       <key>name</key>
       <string>meta.definition.grace</string>
-      <key>match</key>
-      <string>(def)\s+([A-z][A-z\d']*)\s*(?:(=)|(:=))</string>
-      <key>captures</key>
-      <dict>
-        <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.definition.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>entity.definition.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.operator.grace</string>
-        </dict>
-        <key>4</key>
-        <dict>
-          <key>name</key>
-          <string>invalid.illegal.grace</string>
-        </dict>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>meta.definition.grace</string>
       <key>begin</key>
-      <string>(def)\s+([A-z][A-z\d']*)\s*(:)</string>
+      <string>\b(def)</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
         <dict>
           <key>name</key>
           <string>keyword.definition.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>entity.definition.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.type.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -149,63 +110,82 @@
       <key>patterns</key>
       <array>
         <dict>
+          <key>begin</key>
+          <string>(:)</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.grace</string>
+            </dict>
+          </dict>
+          <key>end</key>
+          <string>(?=\bis\b|(?&lt;![^\w\s])(?:(=)|(:=))(?![^\w\s]))|$</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>$self</string>
+            </dict>
+            <dict>
+              <key>name</key>
+              <string>support.type.grace</string>
+              <key>match</key>
+              <string>\w[\w\d']*</string>
+            </dict>
+          </array>
+        </dict>
+        <dict>
+          <key>begin</key>
+          <string>\b(is)\b</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.grace</string>
+            </dict>
+          </dict>
+          <key>end</key>
+          <string>(?=(?&lt;![^\w\s])(?:(=)|(:=))(?![^\w\s]))|$</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>$self</string>
+            </dict>
+            <dict>
+              <key>name</key>
+              <string>support.function.annotation.grace</string>
+              <key>match</key>
+              <string>\w[\w\d']*</string>
+            </dict>
+          </array>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#bad_names</string>
+        </dict>
+        <dict>
           <key>name</key>
-          <string>support.type.grace</string>
+          <string>entity.definition.grace</string>
           <key>match</key>
-          <string>[\w\d'\s&gt;&lt;|&amp;]*</string>
+          <string>\b_\b|[A-Za-z][A-Za-z\d']*</string>
         </dict>
       </array>
     </dict>
     <dict>
       <key>name</key>
       <string>meta.variable.grace</string>
-      <key>match</key>
-      <string>(var)\s+([A-z][A-z\d']*)\s*(?:(:=)|(=))</string>
-      <key>captures</key>
-      <dict>
-        <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.definition.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>entity.definition.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.operator.grace</string>
-        </dict>
-        <key>4</key>
-        <dict>
-          <key>name</key>
-          <string>invalid.illegal.grace</string>
-        </dict>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>meta.variable.grace</string>
       <key>begin</key>
-      <string>(var)\s+([A-z][A-z\d']*)\s*(:)</string>
+      <string>\b(var)</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
         <dict>
           <key>name</key>
-          <string>keyword.definition.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>entity.definition.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.type.grace</string>
+          <string>keyword.variable.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -226,10 +206,68 @@
       <key>patterns</key>
       <array>
         <dict>
+          <key>begin</key>
+          <string>(:)</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.grace</string>
+            </dict>
+          </dict>
+          <key>end</key>
+          <string>(?=\bis\b|(?&lt;![^\w\s])(?:(=)|(:=))(?![^\w\s]))|$</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>$self</string>
+            </dict>
+            <dict>
+              <key>name</key>
+              <string>support.type.grace</string>
+              <key>match</key>
+              <string>\w[\w\d']*</string>
+            </dict>
+          </array>
+        </dict>
+        <dict>
+          <key>begin</key>
+          <string>\b(is)\b</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.grace</string>
+            </dict>
+          </dict>
+          <key>end</key>
+          <string>(?=(?&lt;![^\w\s])(?:(=)|(:=))(?![^\w\s]))|$</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>$self</string>
+            </dict>
+            <dict>
+              <key>name</key>
+              <string>support.function.annotation.grace</string>
+              <key>match</key>
+              <string>\w[\w\d']*</string>
+            </dict>
+          </array>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#bad_names</string>
+        </dict>
+        <dict>
           <key>name</key>
-          <string>support.type.grace</string>
+          <string>entity.variable.grace</string>
           <key>match</key>
-          <string>[\w\d'\s&gt;&lt;|&amp;]*</string>
+          <string>\b_\b|[A-Za-z][A-Za-z\d']*</string>
         </dict>
       </array>
     </dict>
@@ -427,7 +465,7 @@
       <key>name</key>
       <string>keyword.grace</string>
       <key>match</key>
-      <string>\b(var|def|method|class|type|inherits)\b</string>
+      <string>\b(method|class|type|inherits)\b</string>
     </dict>
     <dict>
       <key>name</key>
@@ -487,17 +525,12 @@
       <key>name</key>
       <string>comment.line.grace</string>
     </dict>
-    <key>module_name</key>
+    <key>bad_names</key>
     <dict>
-      <key>match</key>
-      <string>[A-Za-z][\w']*</string>
       <key>name</key>
-      <string>support.other.module.grace</string>
-    </dict>
-    <key>declaration_type</key>
-    <dict>
+      <string>invalid.illegal.grace</string>
       <key>match</key>
-      <string>([A-Za-z][\w']*)(\s*:\s*([A-Za-z][\w']*))?</string>
+      <string>\b(dialect|import|as|object|method|class|type|def|var|where|is|inherits)\b</string>
     </dict>
   </dict>
   <key>uuid</key>
