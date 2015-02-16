@@ -44,6 +44,10 @@
       <array>
         <dict>
           <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
           <string>#signature</string>
         </dict>
         <dict>
@@ -84,6 +88,10 @@
       <key>patterns</key>
       <array>
         <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
           <key>name</key>
           <string>meta.type.generic.grace</string>
           <key>begin</key>
@@ -113,6 +121,10 @@
           </dict>
           <key>patterns</key>
           <array>
+            <dict>
+              <key>include</key>
+              <string>#comment</string>
+            </dict>
             <dict>
               <key>include</key>
               <string>#bad_names</string>
@@ -195,6 +207,10 @@
       <array>
         <dict>
           <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
           <string>#signature</string>
         </dict>
         <dict>
@@ -222,6 +238,10 @@
       <string>\{</string>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>include</key>
           <string>#signature</string>
@@ -289,6 +309,10 @@
       </dict>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>include</key>
           <string>#signature_args</string>
@@ -362,6 +386,10 @@
       </dict>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>begin</key>
           <string>(?&lt;![^\w\d'\s\(,])(:)(?![^\w\d'\s\),])</string>
@@ -449,6 +477,10 @@
       <array>
         <dict>
           <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
           <string>#signature_args</string>
         </dict>
         <dict>
@@ -496,6 +528,10 @@
       </dict>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>match</key>
           <string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)</string>
@@ -675,6 +711,10 @@
       <array>
         <dict>
           <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
           <string>#generic</string>
         </dict>
         <dict>
@@ -700,6 +740,10 @@
       <string>meta.signature.grace</string>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>begin</key>
           <string>(?&lt;![^\w\d'\s\(,])(:)(?![^\w\d'\s\),])</string>
@@ -733,6 +777,10 @@
       <string>meta.signature.grace</string>
       <key>patterns</key>
       <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
         <dict>
           <key>include</key>
           <string>#signature_args</string>
