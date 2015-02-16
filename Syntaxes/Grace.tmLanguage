@@ -548,7 +548,7 @@
             <key>1</key>
             <dict>
               <key>name</key>
-              <string>punctuation.section.embedded.begin.grace</string>
+              <string>keyword.interpolation.begin.grace</string>
             </dict>
           </dict>
           <key>end</key>
@@ -558,7 +558,7 @@
             <key>1</key>
             <dict>
               <key>name</key>
-              <string>punctuation.section.embedded.end.grace</string>
+              <string>keyword.interpolation.end.grace</string>
             </dict>
           </dict>
           <key>patterns</key>
