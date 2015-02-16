@@ -497,7 +497,7 @@
         </dict>
         <dict>
           <key>match</key>
-          <string>[A-z][A-z\d']*(?=\s*[\:\)])</string>
+          <string>[A-z][A-z\d']*</string>
           <key>name</key>
           <string>entity.parameter.grace</string>
         </dict>
