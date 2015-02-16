@@ -360,7 +360,7 @@
       <key>name</key>
       <string>meta.variable.grace</string>
       <key>begin</key>
-      <string>(?&lt;![A-z\d'])(var)</string>
+      <string>(?&lt;![A-z\d'])(var)(?![A-z\d'])</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
