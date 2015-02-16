@@ -683,7 +683,7 @@
       <key>name</key>
       <string>meta.type.generic.grace</string>
       <key>begin</key>
-      <string>([A-z][A-z\d']*)(&lt;)(?!&gt;)</string>
+      <string>(?:([A-Z][A-z\d']*)|[a-z][A-z\d']*)(&lt;)(?!&gt;)</string>
       <key>end</key>
       <string>(&gt;)</string>
       <key>beginCaptures</key>
