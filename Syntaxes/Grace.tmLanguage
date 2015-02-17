@@ -231,7 +231,7 @@
         </dict>
       </dict>
       <key>end</key>
-      <string>\{</string>
+      <string>(?=\{)</string>
       <key>patterns</key>
       <array>
         <dict>
@@ -264,7 +264,7 @@
         </dict>
       </dict>
       <key>end</key>
-      <string>\{</string>
+      <string>(?=\{)</string>
       <key>patterns</key>
       <array>
         <dict>
@@ -491,44 +491,14 @@
       <key>name</key>
       <string>meta.block.grace</string>
       <key>begin</key>
-      <string>\{(?!\s*$)</string>
+      <string>\{</string>
       <key>end</key>
-      <string>(-&gt;)|(?=(.(?!-&gt;))*?(?=$|[^A-z\d\s'_,:]))</string>
-      <key>endCaptures</key>
-      <dict>
-        <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.operator.grace</string>
-        </dict>
-      </dict>
+      <string>\}</string>
       <key>patterns</key>
       <array>
         <dict>
           <key>include</key>
-          <string>#comment</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#signature_args</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#comma</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#bad_names</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#bad_operators</string>
-        </dict>
-        <dict>
-          <key>match</key>
-          <string>[A-z][A-z\d']*</string>
-          <key>name</key>
-          <string>entity.parameter.grace</string>
+          <string>$self</string>
         </dict>
       </array>
     </dict>
@@ -694,7 +664,7 @@
       <key>name</key>
       <string>meta.type.generic.grace</string>
       <key>begin</key>
-      <string>(?:([A-Z][A-z\d']*)|[a-z][A-z\d']*)(&lt;)(?!&gt;)</string>
+      <string>(?:([A-Z][A-z\d']*)|[a-z][A-z\d']*)(&lt;)(?![-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
       <key>end</key>
       <string>(&gt;)</string>
       <key>beginCaptures</key>
