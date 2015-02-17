@@ -504,6 +504,43 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>meta.parameters.block.grace</string>
+      <key>begin</key>
+      <string>(?&lt;=\{)(?=[^}]*[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\}]-&gt;[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
+      <key>end</key>
+      <string>(-&gt;)</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.operator.grace</string>
+        </dict>
+      </dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#signature_args</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#comma</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>[A-z][A-z\d']*</string>
+          <key>name</key>
+          <string>entity.parameter.grace</string>
+        </dict>
+      </array>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>string.quoted.double.grace</string>
       <key>begin</key>
       <string>"</string>
