@@ -22,6 +22,35 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>meta.import.grace</string>
+      <key>match</key>
+      <string>(import)\s*(".*")\s*(as)\s+([A-z][A-z\d']*)</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.import.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>string.path.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.as.grace</string>
+        </dict>
+        <key>4</key>
+        <dict>
+          <key>name</key>
+          <string>entity.identifier.grace</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>meta.type.literal.grace</string>
       <key>begin</key>
       <string>(?:(?&lt;![A-z\d'])(type)|(=))\s*\{</string>
