@@ -219,6 +219,77 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>meta.method.binary.grace</string>
+      <key>begin</key>
+      <string>(?&lt;![A-z\d'])(method)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]+)\s*(?=\()</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>entity.method.grace</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>(?=\{)</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#signature</string>
+        </dict>
+      </array>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>meta.method.prefix.grace</string>
+      <key>begin</key>
+      <string>(?&lt;![A-z\d'])(method)\s+(prefix)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*)</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.grace</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>entity.method.grace</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>(?=\{)</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#comment</string>
+        </dict>
+        <dict>
+          <key>name</key>
+          <string>invalid.illegal.grace</string>
+          <key>match</key>
+          <string>[^\s]+</string>
+        </dict>
+      </array>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>meta.method.grace</string>
       <key>begin</key>
       <string>(?&lt;![A-z\d'])(method)(?![A-z\d'])</string>
@@ -690,7 +761,7 @@
       <key>name</key>
       <string>invalid.illegal.grace</string>
       <key>match</key>
-      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*(?!\s*\()</string>
+      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]+</string>
     </dict>
     <key>generic</key>
     <dict>
@@ -854,6 +925,45 @@
         <dict>
           <key>include</key>
           <string>#comma</string>
+        </dict>
+        <dict>
+          <key>begin</key>
+          <string>(?&lt;=\w)(&lt;)</string>
+          <key>end</key>
+          <string>(&gt;)</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.generic.grace</string>
+            </dict>
+          </dict>
+          <key>endCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.generic.grace</string>
+            </dict>
+          </dict>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>#comment</string>
+            </dict>
+            <dict>
+              <key>include</key>
+              <string>#comma</string>
+            </dict>
+            <dict>
+              <key>name</key>
+              <string>support.type.grace</string>
+              <key>match</key>
+              <string>[A-z][A-z0-9']*</string>
+            </dict>
+          </array>
         </dict>
         <dict>
           <key>include</key>
