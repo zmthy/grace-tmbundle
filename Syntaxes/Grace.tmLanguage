@@ -624,13 +624,18 @@
         </dict>
       </dict>
       <key>end</key>
-      <string>"</string>
+      <string>(")|(\n)</string>
       <key>endCaptures</key>
       <dict>
-        <key>0</key>
+        <key>1</key>
         <dict>
           <key>name</key>
           <string>punctuation.definition.string.end.grace</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>invalid.illegal.grace</string>
         </dict>
       </dict>
       <key>patterns</key>
