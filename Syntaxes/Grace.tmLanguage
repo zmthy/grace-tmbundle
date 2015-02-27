@@ -577,7 +577,7 @@
       <key>name</key>
       <string>meta.parameters.block.grace</string>
       <key>begin</key>
-      <string>(?&lt;=\{)(?=[^}]*[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\}]-&gt;[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
+      <string>(?&lt;=\{)(?=[^{}]*[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\}]-&gt;[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
       <key>end</key>
       <string>(-&gt;)</string>
       <key>endCaptures</key>
@@ -601,6 +601,14 @@
         <dict>
           <key>include</key>
           <string>#comma</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#bad_names</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#bad_operators</string>
         </dict>
         <dict>
           <key>match</key>
@@ -648,22 +656,22 @@
         </dict>
         <dict>
           <key>name</key>
-          <string>source.grace.embedded.source</string>
+          <string>source.embedded.grace</string>
           <key>begin</key>
-          <string>(\{)</string>
+          <string>\{</string>
           <key>beginCaptures</key>
           <dict>
-            <key>1</key>
+            <key>0</key>
             <dict>
               <key>name</key>
               <string>keyword.interpolation.begin.grace</string>
             </dict>
           </dict>
           <key>end</key>
-          <string>(\})</string>
+          <string>\}</string>
           <key>endCaptures</key>
           <dict>
-            <key>1</key>
+            <key>0</key>
             <dict>
               <key>name</key>
               <string>keyword.interpolation.end.grace</string>
