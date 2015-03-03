@@ -604,6 +604,14 @@
         </dict>
         <dict>
           <key>include</key>
+          <string>#number</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#string</string>
+        </dict>
+        <dict>
+          <key>include</key>
           <string>#bad_names</string>
         </dict>
         <dict>
@@ -618,6 +626,91 @@
         </dict>
       </array>
     </dict>
+    <dict>
+      <key>include</key>
+      <string>#string</string>
+    </dict>
+    <dict>
+      <key>include</key>
+      <string>#generic</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>keyword.control.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])(return)(?![A-z\d'])</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>keyword.operator.grace</string>
+      <key>match</key>
+      <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(:|=|:=|\.|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$)</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.function.operator.grace</string>
+      <key>match</key>
+      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>keyword.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])(dialect|import|as|object|method|class|type|def|var|where|is|inherits)(?![A-z\d'])</string>
+    </dict>
+    <dict>
+      <key>include</key>
+      <string>#number</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>variable.language.self.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])(super|self|outer)(?![A-z\d'])</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>constant.language.boolean.true.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])true(?![A-z\d'])</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>constant.language.boolean.false.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])false(?![A-z\d'])</string>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>support.type.grace</string>
+      <key>match</key>
+      <string>(?&lt;![A-z\d'])[A-Z][A-z\d']*(?![A-z\d']|\s*\.\s*[A-z])</string>
+    </dict>
+  </array>
+  <key>repository</key>
+  <dict>
+    <key>comment</key>
+    <dict>
+      <key>match</key>
+      <string>//.*$</string>
+      <key>name</key>
+      <string>comment.line.grace</string>
+    </dict>
+    <key>comma</key>
+    <dict>
+      <key>name</key>
+      <string>keyword.grace</string>
+      <key>match</key>
+      <string>,</string>
+    </dict>
+    <key>number</key>
+    <dict>
+      <key>name</key>
+      <string>constant.numeric.grace</string>
+      <key>match</key>
+      <string>\b((0(x|X)[0-9a-fA-F]+)|([0-9]+(\.[0-9]+)?))\b</string>
+    </dict>
+    <key>string</key>
     <dict>
       <key>name</key>
       <string>string.quoted.double.grace</string>
@@ -687,87 +780,12 @@
         </dict>
       </array>
     </dict>
-    <dict>
-      <key>include</key>
-      <string>#generic</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>keyword.control.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])(return)(?![A-z\d'])</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>keyword.operator.grace</string>
-      <key>match</key>
-      <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(:|=|:=|\.|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$)</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>support.function.operator.grace</string>
-      <key>match</key>
-      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>keyword.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])(dialect|import|as|object|method|class|type|def|var|where|is|inherits)(?![A-z\d'])</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>constant.numeric.grace</string>
-      <key>match</key>
-      <string>\b((0(x|X)[0-9a-fA-F]+)|([0-9]+(\.[0-9]+)?))\b</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>variable.language.self.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])(super|self)(?![A-z\d'])</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>constant.language.boolean.true.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])true(?![A-z\d'])</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>constant.language.boolean.false.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])false(?![A-z\d'])</string>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>support.type.grace</string>
-      <key>match</key>
-      <string>(?&lt;![A-z\d'])[A-Z][A-z\d']*(?![A-z\d']|\s*\.\s*[A-z])</string>
-    </dict>
-  </array>
-  <key>repository</key>
-  <dict>
-    <key>comment</key>
-    <dict>
-      <key>match</key>
-      <string>//.*$</string>
-      <key>name</key>
-      <string>comment.line.grace</string>
-    </dict>
-    <key>comma</key>
-    <dict>
-      <key>name</key>
-      <string>keyword.grace</string>
-      <key>match</key>
-      <string>,</string>
-    </dict>
     <key>bad_names</key>
     <dict>
       <key>name</key>
       <string>invalid.illegal.grace</string>
       <key>match</key>
-      <string>(?&lt;![A-z\d'])(dialect|import|as|object|method|class|type|def|var|where|is|inherits)(?![A-z\d'])</string>
+      <string>(?&lt;![A-z\d'])(dialect|import|as|object|method|class|type|def|var|where|is|inherits|self|super|outer)(?![A-z\d'])</string>
     </dict>
     <key>bad_operators</key>
     <dict>
