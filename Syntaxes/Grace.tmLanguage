@@ -85,7 +85,7 @@
         </dict>
         <dict>
           <key>name</key>
-          <string>entity.method.grace</string>
+          <string>entity.function.grace</string>
           <key>match</key>
           <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
         </dict>
@@ -232,7 +232,7 @@
         <key>2</key>
         <dict>
           <key>name</key>
-          <string>entity.method.grace</string>
+          <string>entity.function.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -269,7 +269,7 @@
         <key>3</key>
         <dict>
           <key>name</key>
-          <string>entity.method.grace</string>
+          <string>entity.function.grace</string>
         </dict>
       </dict>
       <key>end</key>
@@ -315,7 +315,7 @@
         </dict>
         <dict>
           <key>name</key>
-          <string>entity.method.grace</string>
+          <string>entity.function.grace</string>
           <key>match</key>
           <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
         </dict>
@@ -988,7 +988,7 @@
         </dict>
         <dict>
           <key>match</key>
-          <string>[A-z][A-z\d']*(?=\s*[\:\)])</string>
+          <string>[A-z][A-z\d']*(?=\s*[,\:\)])</string>
           <key>name</key>
           <string>entity.parameter.grace</string>
         </dict>
