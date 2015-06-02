@@ -87,7 +87,7 @@
           <key>name</key>
           <string>entity.function.grace</string>
           <key>match</key>
-          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
+          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*</string>
         </dict>
       </array>
     </dict>
@@ -221,7 +221,7 @@
       <key>name</key>
       <string>meta.method.binary.grace</string>
       <key>begin</key>
-      <string>(?&lt;![A-z\d'])(method)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]+)\s*(?=\()</string>
+      <string>(?&lt;![A-z\d'])(method)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]+)\s*(?=\()</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
@@ -253,7 +253,7 @@
       <key>name</key>
       <string>meta.method.prefix.grace</string>
       <key>begin</key>
-      <string>(?&lt;![A-z\d'])(method)\s+(prefix)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*)</string>
+      <string>(?&lt;![A-z\d'])(method)\s+(prefix)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*)</string>
       <key>beginCaptures</key>
       <dict>
         <key>1</key>
@@ -317,7 +317,7 @@
           <key>name</key>
           <string>entity.function.grace</string>
           <key>match</key>
-          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
+          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*</string>
         </dict>
       </array>
     </dict>
@@ -375,7 +375,7 @@
           <key>name</key>
           <string>entity.class.grace</string>
           <key>match</key>
-          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
+          <string>[A-z][A-z\d']*|[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*</string>
         </dict>
       </array>
     </dict>
@@ -502,7 +502,7 @@
             </dict>
           </dict>
           <key>end</key>
-          <string>(?=$|,|\)|(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(:|=|:=|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$))</string>
+          <string>(?=$|,|\)|(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|^)(:|=|:=|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|$))</string>
           <key>patterns</key>
           <array>
             <dict>
@@ -577,7 +577,7 @@
       <key>name</key>
       <string>meta.parameters.block.grace</string>
       <key>begin</key>
-      <string>(?&lt;=\{)(?=[^{}]*[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\}]-&gt;[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
+      <string>(?&lt;=\{)(?=[^{}]*[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\}]-&gt;[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^])</string>
       <key>end</key>
       <string>(-&gt;)</string>
       <key>endCaptures</key>
@@ -644,13 +644,13 @@
       <key>name</key>
       <string>keyword.operator.grace</string>
       <key>match</key>
-      <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(:|=|:=|\.|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$)</string>
+      <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|^)(:|=|:=|\.|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|$)</string>
     </dict>
     <dict>
       <key>name</key>
       <string>support.function.operator.grace</string>
       <key>match</key>
-      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]*</string>
+      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*</string>
     </dict>
     <dict>
       <key>name</key>
@@ -792,14 +792,14 @@
       <key>name</key>
       <string>invalid.illegal.grace</string>
       <key>match</key>
-      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]+</string>
+      <string>[-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]+</string>
     </dict>
     <key>generic</key>
     <dict>
       <key>name</key>
       <string>meta.type.generic.grace</string>
       <key>begin</key>
-      <string>(?:([A-Z][A-z\d']*)|[a-z][A-z\d']*)(&lt;)(?![-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\])</string>
+      <string>(?:([A-Z][A-z\d']*)|[a-z][A-z\d']*)(&lt;)(?![-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^])</string>
       <key>end</key>
       <string>(&gt;)</string>
       <key>beginCaptures</key>
@@ -872,7 +872,7 @@
             </dict>
           </dict>
           <key>end</key>
-          <string>(?=,|\)|(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(:|=|:=|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$))</string>
+          <string>(?=,|\)|(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|^)(:|=|:=|-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|$))</string>
           <key>patterns</key>
           <array>
             <dict>
@@ -898,12 +898,8 @@
           <string>#comment</string>
         </dict>
         <dict>
-          <key>include</key>
-          <string>#signature_args</string>
-        </dict>
-        <dict>
           <key>begin</key>
-          <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|^)(-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\]|$)</string>
+          <string>(?&lt;=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|^)(-&gt;)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]|$)</string>
           <key>beginCaptures</key>
           <dict>
             <key>1</key>
