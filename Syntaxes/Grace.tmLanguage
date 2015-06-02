@@ -219,77 +219,6 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>meta.method.binary.grace</string>
-      <key>begin</key>
-      <string>(?&lt;![A-z\d'])(method)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]+)\s*(?=\()</string>
-      <key>beginCaptures</key>
-      <dict>
-        <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>entity.function.grace</string>
-        </dict>
-      </dict>
-      <key>end</key>
-      <string>(?=\{)</string>
-      <key>patterns</key>
-      <array>
-        <dict>
-          <key>include</key>
-          <string>#comment</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#signature</string>
-        </dict>
-      </array>
-    </dict>
-    <dict>
-      <key>name</key>
-      <string>meta.method.prefix.grace</string>
-      <key>begin</key>
-      <string>(?&lt;![A-z\d'])(method)\s+(prefix)\s*([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*)</string>
-      <key>beginCaptures</key>
-      <dict>
-        <key>1</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.grace</string>
-        </dict>
-        <key>2</key>
-        <dict>
-          <key>name</key>
-          <string>keyword.grace</string>
-        </dict>
-        <key>3</key>
-        <dict>
-          <key>name</key>
-          <string>entity.function.grace</string>
-        </dict>
-      </dict>
-      <key>end</key>
-      <string>(?=\{)</string>
-      <key>patterns</key>
-      <array>
-        <dict>
-          <key>include</key>
-          <string>#comment</string>
-        </dict>
-        <dict>
-          <key>name</key>
-          <string>invalid.illegal.grace</string>
-          <key>match</key>
-          <string>[^\s]+</string>
-        </dict>
-      </array>
-    </dict>
-    <dict>
-      <key>name</key>
       <string>meta.method.grace</string>
       <key>begin</key>
       <string>(?&lt;![A-z\d'])(method)(?![A-z\d'])</string>
@@ -885,6 +814,16 @@
             </dict>
           </array>
         </dict>
+        <dict>
+          <key>match</key>
+          <string>[A-z][A-z\d']*(?=\s*[,\:\)])</string>
+          <key>name</key>
+          <string>entity.function.grace</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#comma</string>
+        </dict>
       </array>
     </dict>
     <key>signature</key>
@@ -909,7 +848,7 @@
             </dict>
           </dict>
           <key>end</key>
-          <string>(?=(?&lt;![A-z\d'])is(?![A-z\d'])|\{|\}|(?&lt;=[A-z\d'"])\s+$)</string>
+          <string>(?=(?&lt;![A-z\d'])is(?![A-z\d'])|\{|\}|(?&lt;=[A-z\d'"&gt;)])(?&lt;!-&gt;)\s+$)</string>
           <key>patterns</key>
           <array>
             <dict>
@@ -923,6 +862,68 @@
           </array>
         </dict>
         <dict>
+          <key>name</key>
+          <string>meta.signature.prefix.grace</string>
+          <key>match</key>
+          <string>(prefix)\s*(?:(:(?:=?)(?=[^-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]))|([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]*))</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>invalid.illegal.grace</string>
+            </dict>
+            <key>3</key>
+            <dict>
+              <key>name</key>
+              <string>entity.function.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>name</key>
+          <string>meta.signature.assign.grace</string>
+          <key>match</key>
+          <string>([A-z][A-z0-9']*)\s*(:=)\s*(?=\()</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>entity.function.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>name</key>
+          <string>meta.signature.binary.grace</string>
+          <key>match</key>
+          <string>(?:(:(?:=?))|([-|@#!%$?&amp;=:\.\*~+\&lt;/&gt;\\\^]+))\s*(?=\()</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>invalid.illegal.grace</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>entity.function.grace</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
           <key>begin</key>
           <string>(?&lt;![A-z\d'])(is)(?![A-z\d'])</string>
           <key>beginCaptures</key>
@@ -934,7 +935,7 @@
             </dict>
           </dict>
           <key>end</key>
-          <string>(?=\{)</string>
+          <string>(?=\{|\}|(?&lt;=[A-z\d'"&gt;)])(?&lt;!is)\s+$)</string>
           <key>patterns</key>
           <array>
             <dict>
@@ -950,8 +951,19 @@
           </array>
         </dict>
         <dict>
-          <key>include</key>
-          <string>#comma</string>
+          <key>name</key>
+          <string>meta.signature.parameters.grace</string>
+          <key>begin</key>
+          <string>\(</string>
+          <key>end</key>
+          <string>\)</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>include</key>
+              <string>#signature_args</string>
+            </dict>
+          </array>
         </dict>
         <dict>
           <key>begin</key>
@@ -1004,7 +1016,7 @@
           <key>match</key>
           <string>[A-z][A-z\d']*(?=\s*[,\:\)])</string>
           <key>name</key>
-          <string>entity.parameter.grace</string>
+          <string>entity.function.grace</string>
         </dict>
       </array>
     </dict>
