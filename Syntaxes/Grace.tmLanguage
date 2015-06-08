@@ -790,6 +790,12 @@
           <string>#comment</string>
         </dict>
         <dict>
+          <key>match</key>
+          <string>\*</string>
+          <key>name</key>
+          <string>keyword.variadic.grace</string>
+        </dict>
+        <dict>
           <key>begin</key>
           <string>(?&lt;![^\w\d'\s\(,])(:)(?![^\w\d'\s\),])</string>
           <key>beginCaptures</key>
